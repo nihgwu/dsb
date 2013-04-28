@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="span8" id="post-<%= post.slug %>">
+    <div class='content'>
+      <h3><a href="/post/<%= post.slug %>"><%= post.title %></a></h3>
+      <div><%- post.content %></div>
+      <div>
+        <hr/>
+        <span class="label"><i class="icon-calendar icon-white"></i> <%= dateFormat(post.date,'yyyy-MM-dd') %> </span>
+        <a class="badge badge-info" href="/?category=<%= post.category %>"><i class="icon-bookmark icon-white"></i> <%= post.category||'未分类' %></a>
+        <% if(post.tags){ %>
+        <% post.tags.forEach(function(tag){ %>
+        <a class="badge badge-inverse" href="/?tag=<%= tag %>"><i class="icon-tag icon-white"></i> <%= tag %></a>
+        <% }) %>
+        <% } %>
+        <% if(login){ %>
+        <a class="btn btn-primary btn-small pull-right" href="/post/<%= post.slug %>/edit"><i class="icon-pencil icon-white"></i> 编辑</a>
+        <% } %>
+      </div>
+    </div>
+    <ul class="pager">
+      <% if (previous) { %>
+      <li class="previous">
+        <a href="/post/<%= previous.slug %>">&larr; Older</a>
+      </li>
+      <% } %>
+      <% if (next) { %>
+      <li class="next">
+        <a href="/post/<%= next.slug %>">Newer &rarr;</a>
+      </li>
+      <% } %>
+    </ul>
+    <!-- Duoshuo Comment BEGIN -->
+    <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"nihgwu"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- Duoshuo Comment END -->
+  </div>
+</div>

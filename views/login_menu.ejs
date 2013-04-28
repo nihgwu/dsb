@@ -1,0 +1,9 @@
+<ul class="nav pull-right">
+  <% if(!login){ %>
+  <li><a href="javascript:void(0)" data-toggle="modal" data-target="#login"><i class="icon-user icon-white"></i> Login</a> </li>
+  <% } else { %>
+  <li><a href="/new"><i class="icon-plus icon-white"></i> New post</a> </li>
+  <li><a href="/settings"><i class="icon-wrench icon-white"></i> Settings</a> </li>
+  <li><a href="/logout"><i class="icon-user icon-white"></i> Logout</a> </li>
+  <% } %>
+</ul>

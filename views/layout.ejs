@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><%= (title? title+' | ':'') %><%= config.site.name %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= config.site.description %>">
+    <meta name="author" content="<%= config.site.author %>">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.responsive.min.css" rel="stylesheet">
+    <link title="<%= config.site.name %>" type="application/rss+xml" rel="alternate" href="/rss" />
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-touch-icon-114x114.png">
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a href="/" class="brand">DSB</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <%
+              function isActive(url,link){
+                if(link=='/' && url=='/') return "active";
+                return link!='/' && url.indexOf(link)===0? "active":"";
+              }
+              config.navigators.forEach(function(navigator){ %>
+              <li class="<%= isActive(url,navigator.link) %>"><a href="<%= navigator.link %>"><%= navigator.name %></a></li>
+              <% }) %>
+            </ul>
+            <% include login_menu %>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+    <%- body %>
+      <div class="row">
+        <div id='footer' class="span8">
+          <div class="well well-small">
+            Powered by <a href="http://nodejs.org" target="_blank">Nodejs</a> + <a href="http://mongodb.org" target="_blank">MongoDB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% include login_form %>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!--
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-39825336-1', 'cooljs.org');
+      ga('send', 'pageview');
+    </script>
+    -->
+    <!--[if lt IE 7 ]>
+      <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+      <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+    <![endif]-->
+  </body>
+</html>

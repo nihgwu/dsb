@@ -1,0 +1,14 @@
+<% if(pager&&(pager.total/pager.size)>1){ %>
+<ul class="pager">
+  <% if (pager.page<(pager.total/pager.size)) { %>
+  <li class="previous">
+    <a href="/page/<%= pager.page+1 %>">&larr; Older</a>
+  </li>
+  <% } %>
+  <% if (pager.page>1) { %>
+  <li class="next">
+    <a href="/page/<%= pager.page-1 %>">Newer &rarr;</a>
+  </li>
+  <% } %>
+</ul>
+<% } %>

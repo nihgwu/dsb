@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="span8">
+    <div class='content'>
+      <form method="post">
+        <fieldset>
+          <legend>Edit Post</legend>
+          <label for="slug">Slug</label>
+          <input id="slug" name="post[slug]" type="text" value="<%= post.slug %>"/>
+          <label for="markdown">Markdown</label>
+          <textarea id="markdown" name="post[markdown]"><%= post.markdown %></textarea>
+        </fieldset>
+        <button class="btn btn-primary" type="submit">Save</button>
+        <button class="btn btn-danger" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
