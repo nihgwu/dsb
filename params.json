@@ -1,0 +1,6 @@
+{
+  "name": "Dsb",
+  "tagline": "dead simple blog, based on nodejs, expressjs, ejs, marked",
+  "body": "# dsb\r\n\r\ndead simple blog, based on nodejs, expressjs, ejs, marked\r\n\r\n[Demo](http://dsb.ap01.aws.af.cm/)\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
